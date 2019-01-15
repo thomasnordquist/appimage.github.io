@@ -21,7 +21,7 @@ if [ x"${URL:0:18}" == x"https://github.com" ] && [[ "${URL}" != *"download"* ]]
   echo "GitHub URL detected"
   GHUSER=$(echo "$URL" | cut -d '/' -f 4)
   GHREPO=$(echo "$URL" | cut -d '/' -f 5)
-  GHURL="https://api.github.com/repos/$GHUSER/$GHREPO/releases" # Not "/latest" due to https://github.com/AppImage/AppImageHub/issues/12
+  GHURL="https://api.github.com/repos/$GHUSER/$GHREPO/releases?access_token=$GH_TOKEN" # Not "/latest" due to https://github.com/AppImage/AppImageHub/issues/12
   echo "URL from GitHub: $URL"
 fi
 
